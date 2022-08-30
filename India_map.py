@@ -114,8 +114,11 @@ for key in canada._children:
     if key.startswith('color_map'):
         del(canada._children[key])
 canada.add_to(in_map)
-for s in[default,us,uk,canada,schengen]:
+layers=[default,us,uk,canada,schengen]
+layers=[default]
+for s in layers:
     for lat, lng,Notes,place,Visa,days in zip(df_can.lat,df_can.long,df_can.Notes,df_can.Country,df_can['Visa requirement'],df_can['Allowed stay']):  
+        print(str(place),lat,lng)
         pop_text=str(place)+': '+str(Visa)
         if days!=' ':
             pop_text+=" |Days Granted: "+ str(days)
